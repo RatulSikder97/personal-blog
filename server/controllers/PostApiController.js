@@ -65,6 +65,7 @@ exports.UPDATE = async function (req, res) {
 		await Post.findByIdAndUpdate(req.params.id, {
 			title: req.body.title,
 			content: req.body.content,
+			updated_at: Date.now(),
 		});
 		res.json({ message: "Post updated successfully!!!!" });
 	} catch (error) {
