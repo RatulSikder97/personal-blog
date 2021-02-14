@@ -1,5 +1,5 @@
 const express = require("express");
-const postRouter = express.Router();
+const postRouter = express.Router({mergeParams:true});
 
 // import controller;
 const PostApiController = require("../../controllers/PostApiController");

@@ -20,10 +20,13 @@ const PostSchema = Schema({
 		type: Date,
 		default: Date.now(),
 	},
+	author_id: {
+		type: Number,
+		required: true,
+	},
 });
 
 // model function
-function getAll() {}
 
 autoIncrement.initialize(mongoose.connection);
 PostSchema.plugin(autoIncrement.plugin, "Post");
