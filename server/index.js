@@ -14,6 +14,8 @@ require("dotenv").config();
 /* ----- Import Routes ----- */
 // const getCategory = require('./routes/api/category/getCategory');
 const postRoute = require("./routes/api/postRoute");
+const userRoute = require("./routes/api/userRoute");
+const authRoute = require("./routes/api/authRoute");
 
 const app = express();
 
@@ -27,11 +29,15 @@ const middleware = [
 	cors(),
 	express.urlencoded({ extended: true }),
 	express.json(),
+	bodyParser.json(),
 ];
 app.use(middleware);
 
 /* ----- Routes ----- */
 app.use("/api/post/", postRoute);
+app.use("/api/user/", userRoute);
+// auth route
+app.use("/api/auth/", authRoute);
 
 /* ----- Listen ----- */
 app.listen(port, () => {
