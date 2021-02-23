@@ -15,7 +15,7 @@ exports.INDEX = async function (req, res) {
 			res.json(posts);
 		} else {
 			const posts = await Post.find();
-			res.json(posts);
+			res.status(200).json(posts);
 		}
 	} catch (error) {
 		res.status(400).json({ message: "There is some error happend!!!!!:0)" });
@@ -39,9 +39,9 @@ exports.STORE = async function (req, res) {
 
 	try {
 		await post.save();
-		res.json({ message: "Post created successfully!!!!" });
+		res.status(200).json({ message: "Post created successfully!!!!" });
 	} catch (error) {
-		res.json({ message: "There is some error happend!!!!!:0)", error: error });
+		res.status(400).json({ message: "There is some error happend!!!!!:0)", error: error });
 	}
 };
 
@@ -52,14 +52,14 @@ exports.SHOW = async function (req, res) {
 	try {
 		const userId = req.params.userId || "";
 		if (userId != "") {
-			const posts = await Post.find({ author_id: userId, _id: req.params.id });
-			res.json(posts);
+			const posts = await Post.find({ author_id: userId, _id: req.params.postId });
+			res.status(200).json(posts);
 		} else {
-			const post = await Post.findById(req.params.id);
-			res.json(post);
+			const post = await Post.findById(req.params.postId);
+			res.status(200).json(post);
 		}
 	} catch (error) {
-		res.json({ message: "There is some error happend!!!!!:0)" });
+		res.status(400).json({ message: "There is some error happend!!!!!:0)" });
 	}
 };
 
@@ -74,7 +74,7 @@ exports.EDIT = function (req, res) {};
 exports.UPDATE = async function (req, res) {
 	try {
 		let post = await Post.updateOne(
-			{ _id: req.params.id, author_id: req.params.userId },
+			{ _id: req.params.postId, author_id: req.params.userId },
 			{
 				title: req.body.title,
 				content: req.body.content,
@@ -83,9 +83,9 @@ exports.UPDATE = async function (req, res) {
 			{ upsert: true },
 		);
 
-		res.json({ message: "Post updated successfully!!!!" });
+		res.status(200).json({ message: "Post updated successfully!!!!" });
 	} catch (error) {
-		res.json({ message: "There is some error happend!!!!!:0)" });
+		res.status(400).json({ message: "There is some error happend!!!!!:0)" });
 	}
 };
 
@@ -95,12 +95,12 @@ exports.UPDATE = async function (req, res) {
 exports.DELETE = async function (req, res) {
 	try {
 		await Post.deleteOne({
-			_id: req.params.id,
+			_id: req.params.postId,
 			author_id: req.params.userId,
 		});
 
-		res.json({ message: "Post deleted successfully!!!!" });
+		res.status(200).json({ message: "Post deleted successfully!!!!" });
 	} catch (error) {
-		res.json({ message: "There is some error happend!!!!!:0)" });
+		res.status(400).json({ message: "There is some error happend!!!!!:0)" });
 	}
 };

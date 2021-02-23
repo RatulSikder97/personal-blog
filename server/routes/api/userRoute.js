@@ -10,6 +10,7 @@ const AuthApiController = require("../../controllers/AuthApiController");
 
 userRouter.post("/", AuthApiController.REGISTER);
 userRouter.post("/", AuthApiController.LOGIN);
+userRouter.get("/:userId", UserApiController.SHOW);
 
 userRouter.use("/:userId/post/", postRoute);
 module.exports = userRouter;

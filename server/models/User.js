@@ -11,6 +11,7 @@ const UserSchema = Schema({
 	email: {
 		type: String,
 		required: true,
+		unique: true,
 	},
 	password: {
 		type: String,
@@ -19,15 +20,10 @@ const UserSchema = Schema({
 	confirmPassword: {
 		type: String,
 		required: true,
+		select:false,
 	},
 });
 
-// model function
-UserSchema.methods.toJSON = function () {
-	var obj = this.toObject();
-	delete obj.password;
-	return obj;
-};
 
 autoIncrement.initialize(mongoose.connection);
 UserSchema.plugin(autoIncrement.plugin, "user");

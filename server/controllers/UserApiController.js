@@ -24,7 +24,16 @@ exports.STORE = async function (req, res) {};
 // @route: api/post/:id
 //@desc: Show a Single post
 //Access:
-exports.SHOW = async function (req, res) {};
+exports.SHOW = async function (req, res) {
+	try {
+	
+		const user = await User.findById(req.params.userId);
+		res.status(200).json(user);
+		
+	} catch (error) {
+		res.status(400).json({ message: "There is some error happend!!!!!:0)" });
+	}
+};
 
 // @route: api/post/:id/edit
 //@desc: view Edit Form
