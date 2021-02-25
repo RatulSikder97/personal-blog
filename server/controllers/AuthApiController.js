@@ -46,7 +46,7 @@ exports.REGISTER = async function (req, res) {
 		// });
 		res.json({ message: "User Registration successfully!!!!" }).send();
 	} catch (error) {
-		res.status(500).send({ messages: "There is some error happened" });
+		res.status(500).send({ message: "There is some error happened" });
 	}
 };
 
@@ -61,14 +61,14 @@ exports.LOGIN = async function (req, res) {
 		if (!existUser) {
 			return res
 				.status(400)
-				.send({ messages: "There is no user exist with this email" });
+				.send({ message: "There is no user exist with this email" });
 		}
 
 		// check password
 		const passwordCorrect = await bcrypt.compare(password, existUser.password);
 
 		if (!passwordCorrect) {
-			return res.status(401).send({ messages: "Password is not correct" });
+			return res.status(401).send({ message: "Password is not correct" });
 		}
 
 		// login
@@ -86,7 +86,7 @@ exports.LOGIN = async function (req, res) {
 		});
 		res.json({ message: "User Login successfully!!!!" }).send();
 	} catch (error) {
-		res.status(500).send({ messages: "There is some error happened" });
+		res.status(500).send({ message: "There is some error happened" });
 	}
 };
 
