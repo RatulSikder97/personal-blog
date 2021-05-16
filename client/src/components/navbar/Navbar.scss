@@ -1,0 +1,33 @@
+@import "../../assets/scss/main";
+
+.navbar {
+  &-brand {
+    font-size: $subTitleSmallSize;
+    font-family: $poppinsMedium;
+  }
+
+  &-nav {
+    .nav-item {
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .nav-link {
+      font-size: $bodySize;
+      font-family: $poppinsMedium;
+      color: $blackColor !important;
+      transition: all 0.5s ease;
+
+      &.active {
+        color: $primaryColor !important;
+      }
+
+      &:hover {
+        color: $primaryColor !important;
+      }
+    }
+  }
+}

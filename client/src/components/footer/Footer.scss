@@ -1,0 +1,23 @@
+@import "../../assets/scss/main";
+
+.footer {
+  background-color: $greyColor;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+
+  p {
+    color: $whiteColor;
+    font-size: $smallSize;
+    margin-bottom: 0;
+
+    a {
+      color: inherit;
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: #d1d1d1;
+      }
+    }
+  }
+}

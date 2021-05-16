@@ -1,0 +1,29 @@
+// Colors
+$whiteColor: #ffffff;
+$blackColor: #333333;
+$greyColor: #5a5a5a;
+$primaryColor: #06508b;
+$secondaryColor: #03035f;
+$borderColor: #e2e2e2;
+
+// Sizes
+$titleSize: 3rem; // 48px
+$subTitleSize: 2.25rem; // 36px
+$subTitleSmallSize: 1.875rem; // 30px
+$btnSize: 1.25rem; // 20px
+$btnSmallSize: 1rem; // 16px
+$bodySize: 0.875rem; // 14px
+$smallSize: 0.75rem; // 12px
+
+// Fonts
+$poppinsBold: "poppins-bold";
+$poppinsSemiBold: "poppins-semiBold";
+$poppinsMedium: "poppins-medium";
+$poppinsRegular: "poppins-regular";
+$poppinsLight: "poppins-light";
+$poppinsThin: "poppins-thin";
+
+// z-index
+$zIndexLow: 1000;
+$zIndexMedium: $zIndexLow + 1000;
+$zIndexHigh: $zIndexMedium + 1000;

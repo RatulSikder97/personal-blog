@@ -1,0 +1,10 @@
+@import "./assets/scss/main.scss";
+
+.App {
+  text-align: center;
+
+  h1 {
+    font-family: $poppinsBold;
+    color: $secondaryColor;
+  }
+}

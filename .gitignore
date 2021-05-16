@@ -11,6 +11,8 @@
 
 # production
 /client/build
+.vscode
+.eslintrc
 
 # misc
 .DS_Store
